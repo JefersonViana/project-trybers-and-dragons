@@ -1,14 +1,12 @@
 import Energy from '../Energy';
+import IAttack from './Attack';
+import ILifeAndStrength from './LifeAndStrength';
 
-interface Fighter {
-  lifePoints:number,
-  strength:number,
+interface Fighter extends IAttack<Fighter>, ILifeAndStrength {
   defense:number,
   energy?:Energy,
-  attack(enemy:Fighter):void,
   special?(enemy:Fighter):void,
   levelUp():void,
-  receiveDamage(attackPoints:number):number,
 }
 
 export default Fighter;
